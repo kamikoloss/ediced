@@ -61,10 +61,17 @@ func _on_button_roll_pressed() -> void:
     tween.tween_interval(0.05)
     await tween.finished
 
+    reroll_count -= 1
+
 
 func _on_button_end_pressed() -> void:
     pass
 
 
 func _refresh_reroll_lamps() -> void:
-    pass
+    for i: int in reroll_lamps.get_child_count():
+        var lamp: Control = reroll_lamps.get_child(i)
+        if i < reroll_count:
+            lamp.modulate = Color.WHITE
+        else:
+            lamp.modulate = Color.WEB_GRAY

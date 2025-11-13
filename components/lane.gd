@@ -30,4 +30,4 @@ func _init_buttons() -> void:
         var button: Button = buttons.get_child(i)
         button.visible = i < button_count
         button.disabled = true
-        button.modulate = Color.DIM_GRAY
+        button.modulate = Color.WEB_GRAY
