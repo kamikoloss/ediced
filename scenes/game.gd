@@ -1,5 +1,21 @@
 extends Control
 
+var score := 0:
+    set(v):
+        score = v
+        label_score.text = str(v)
+var target := 0:
+    set(v):
+        target = v
+        label_target.text = str(v)
+
+var phase := 0
+var stage := 0
+var reroll_count := 0:
+    set(v):
+        reroll_count = v
+        _refresh_reroll_lamps()
+
 var dice_a := 0:
     set(v):
         dice_a = v
@@ -10,6 +26,7 @@ var dice_b := 0:
         label_dice_b.text = str(v)
 
 @onready var lanes: HBoxContainer = %Lanes
+@onready var reroll_lamps: HBoxContainer = %RerollLamps
 
 @onready var button_roll: Button = %ButtonRoll
 @onready var button_end: Button = %ButtonEnd
@@ -21,14 +38,17 @@ var dice_b := 0:
 @onready var label_dice_a: Label = %LabelDiceA
 @onready var label_dice_b: Label = %LabelDiceB
 
-@onready var texture_rect_reroll_1: TextureRect = %TextureRectReroll1
-@onready var texture_rect_reroll_2: TextureRect = %TextureRectReroll2
-@onready var texture_rect_reroll_3: TextureRect = %TextureRectReroll3
-
 
 func _ready() -> void:
     button_roll.pressed.connect(_on_button_roll_pressed)
     button_end.pressed.connect(_on_button_roll_pressed)
+
+    for i: int in lanes.get_child_count():
+        var lane: Lane = lanes.get_child(i)
+        lane.number = i + 2 # 2-11
+        lane.score = 1
+
+    reroll_count = 3
 
 
 func _on_button_roll_pressed() -> void:
@@ -39,7 +59,12 @@ func _on_button_roll_pressed() -> void:
     tween.tween_callback(func() -> void: dice_b = randi_range(1, 6))
     tween.chain()
     tween.tween_interval(0.05)
+    await tween.finished
 
 
 func _on_button_end_pressed() -> void:
+    pass
+
+
+func _refresh_reroll_lamps() -> void:
     pass
