@@ -41,7 +41,7 @@ var dice_b := 0:
 
 func _ready() -> void:
     button_roll.pressed.connect(_on_button_roll_pressed)
-    button_end.pressed.connect(_on_button_roll_pressed)
+    button_end.pressed.connect(_on_button_end_pressed)
 
     for i: int in lanes.get_child_count():
         var lane: Lane = lanes.get_child(i)
@@ -52,6 +52,11 @@ func _ready() -> void:
 
 
 func _on_button_roll_pressed() -> void:
+    reroll_count -= 1
+    if reroll_count == 0:
+        button_roll.disabled = true
+        button_end.disabled = true
+
     var tween := create_tween()
     tween.set_loops(10)
     tween.parallel()
@@ -61,11 +66,15 @@ func _on_button_roll_pressed() -> void:
     tween.tween_interval(0.05)
     await tween.finished
 
-    reroll_count -= 1
+    var target_lane_index := dice_a + dice_b - 2 # 2-11 -> 0-9
+    var lane: Lane = lanes.get_child(target_lane_index)
+    lane.set_button_ready(1)
 
 
 func _on_button_end_pressed() -> void:
-    pass
+    phase += 1
+    reroll_count = 3
+    button_roll.disabled = false
 
 
 func _refresh_reroll_lamps() -> void:
