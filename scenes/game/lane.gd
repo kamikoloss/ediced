@@ -1,4 +1,4 @@
-class_name Lane
+#class_name Lane
 extends Control
 
 var number := 0:
