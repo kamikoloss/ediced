@@ -153,10 +153,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LabelDiceA2" type="Label" parent="Main/ColorRectDiceA"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "[1,2,3,4,5,6]"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="ColorRectDiceB" type="ColorRect" parent="Main"]
 layout_mode = 0
@@ -175,10 +188,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LabelDiceB2" type="Label" parent="Main/ColorRectDiceB"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "[1,2,3,4,5,6]"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="ColorRectDiceC" type="ColorRect" parent="Main"]
 layout_mode = 0
@@ -197,10 +223,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 64
 text = "?"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LabelDiceC2" type="Label" parent="Main/ColorRectDiceC"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "[1,2,3,4,5,6]"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="ButtonRoll" type="Button" parent="Main"]
 unique_name_in_owner = true
@@ -213,8 +252,21 @@ theme_override_font_sizes/font_size = 32
 text = "Roll
 Dice"
 
+[node name="ButtonPick" type="Button" parent="Main"]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 330.0
+offset_top = 170.0
+offset_right = 470.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 32
+text = "Pick
+Lane"
+
 [node name="ButtonEnd" type="Button" parent="Main"]
 unique_name_in_owner = true
+modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 330.0
 offset_top = 170.0
@@ -222,9 +274,9 @@ offset_right = 470.0
 offset_bottom = 310.0
 theme_override_font_sizes/font_size = 32
 text = "End
-Phase"
+Turn"
 
-[node name="RerollLamps" type="VBoxContainer" parent="Main"]
+[node name="RollLamps" type="VBoxContainer" parent="Main"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 160)
 layout_mode = 0
@@ -236,25 +288,25 @@ rotation = 3.1415927
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Main/RerollLamps"]
+[node name="TextureRect" type="TextureRect" parent="Main/RollLamps"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("3_avsci")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="Main/RerollLamps"]
+[node name="TextureRect2" type="TextureRect" parent="Main/RollLamps"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("3_avsci")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="Main/RerollLamps"]
+[node name="TextureRect3" type="TextureRect" parent="Main/RollLamps"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("3_avsci")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="Main/RerollLamps"]
+[node name="TextureRect4" type="TextureRect" parent="Main/RollLamps"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("3_avsci")
@@ -296,33 +348,31 @@ layout_mode = 2
 texture = ExtResource("3_avsci")
 expand_mode = 1
 
-[node name="Deck" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(320, 320)
+[node name="Dices" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 320.0
 offset_bottom = 360.0
 
-[node name="ColorRect" type="ColorRect" parent="Deck"]
-layout_mode = 2
-color = Color(0.2, 0, 0.2, 0.2)
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Deck"]
+[node name="Panel" type="Panel" parent="Dices"]
+visible = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Deck/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Dices"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dices/ScrollContainer"]
 layout_mode = 2
 
 [node name="Shop" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(320, 320)
 layout_mode = 0
 offset_top = 360.0
 offset_right = 320.0
 offset_bottom = 680.0
 
-[node name="ColorRect" type="ColorRect" parent="Shop"]
+[node name="Panel" type="Panel" parent="Shop"]
+visible = false
 layout_mode = 2
-color = Color(0, 0.2, 0, 0.2)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
 layout_mode = 2
@@ -335,93 +385,107 @@ layout_mode = 0
 offset_left = 960.0
 offset_top = 40.0
 offset_right = 1280.0
-offset_bottom = 680.0
+offset_bottom = 360.0
 
-[node name="ColorRect" type="ColorRect" parent="Score"]
+[node name="Panel" type="Panel" parent="Score"]
+visible = false
 layout_mode = 2
-color = Color(0, 0, 0.2, 0.2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Score"]
+[node name="MarginContainer" type="MarginContainer" parent="Score"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Score/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="LabelTemp" type="Label" parent="Score/VBoxContainer"]
+[node name="LabelTemp" type="Label" parent="Score/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 80)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "999,999,999"
-horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="LabelScore2" type="Label" parent="Score/VBoxContainer"]
-custom_minimum_size = Vector2(320, 40)
+[node name="LabelScore2" type="Label" parent="Score/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Score"
-horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="LabelScore" type="Label" parent="Score/VBoxContainer"]
+[node name="LabelScore" type="Label" parent="Score/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 80)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "999,999,999"
-horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="LabelTarget2" type="Label" parent="Score/VBoxContainer"]
-custom_minimum_size = Vector2(320, 40)
+[node name="LabelTarget2" type="Label" parent="Score/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Target"
-horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="LabelTarget" type="Label" parent="Score/VBoxContainer"]
+[node name="LabelTarget" type="Label" parent="Score/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 80)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "999,999,999"
-horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="LabelPhase2" type="Label" parent="Score/VBoxContainer"]
-custom_minimum_size = Vector2(320, 40)
+[node name="LabelTurn2" type="Label" parent="Score/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Phase"
-horizontal_alignment = 2
+text = "Turn"
 vertical_alignment = 2
 
-[node name="LabelPhase" type="Label" parent="Score/VBoxContainer"]
+[node name="LabelTurn" type="Label" parent="Score/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 80)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "99/99"
-horizontal_alignment = 2
-vertical_alignment = 1
 
-[node name="LabelStage2" type="Label" parent="Score/VBoxContainer"]
+[node name="LabelStage2" type="Label" parent="Score/MarginContainer/VBoxContainer"]
 visible = false
-custom_minimum_size = Vector2(320, 40)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Stage"
-horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="LabelStage" type="Label" parent="Score/VBoxContainer"]
+[node name="LabelStage" type="Label" parent="Score/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(320, 80)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "99/99"
-horizontal_alignment = 2
-vertical_alignment = 1
+
+[node name="Item" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 360.0
+offset_right = 1280.0
+offset_bottom = 680.0
+
+[node name="Panel" type="Panel" parent="Item"]
+visible = false
+layout_mode = 2
 
 [node name="Labels" type="Control" parent="."]
 anchors_preset = 0
+
+[node name="LabelLanes" type="Label" parent="Labels"]
+visible = false
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_left = 480.0
+offset_right = 800.0
+offset_bottom = 40.0
+text = "[LANES]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LabelTitle" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(320, 40)
@@ -434,12 +498,12 @@ text = "EDICED v0.0.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelDeck" type="Label" parent="Labels"]
+[node name="LabelDices" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(320, 40)
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 40.0
-text = "[DECK]"
+text = "[DICES]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -453,16 +517,6 @@ text = "[SHOP]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelLanes" type="Label" parent="Labels"]
-custom_minimum_size = Vector2(320, 40)
-layout_mode = 0
-offset_left = 480.0
-offset_right = 800.0
-offset_bottom = 40.0
-text = "[LANES]"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="LabelScore" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(320, 40)
 layout_mode = 0
@@ -470,5 +524,16 @@ offset_left = 960.0
 offset_right = 1280.0
 offset_bottom = 40.0
 text = "[SCORE]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelItem" type="Label" parent="Labels"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_left = 960.0
+offset_top = 680.0
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "[ITEMS]"
 horizontal_alignment = 1
 vertical_alignment = 1
