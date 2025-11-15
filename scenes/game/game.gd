@@ -45,7 +45,7 @@ func _ready() -> void:
 
     for i: int in lanes.get_child_count():
         var lane: Lane = lanes.get_child(i)
-        lane.number = i + 2 # 2-11
+        lane.number = i + 2 # 0-9 -> 2-11
         lane.score = 1
 
     reroll_count = 3

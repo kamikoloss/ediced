@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbvitk0tws21e"]
 
-[ext_resource type="Script" uid="uid://rfrlb715t84a" path="res://scenes/game.gd" id="1_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://b8vlxuq37kacv" path="res://components/lane.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://rfrlb715t84a" path="res://scenes/game/game.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://b8vlxuq37kacv" path="res://scenes/game/lane.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://whsegdldubtd" path="res://textures/common/base_circle.svg" id="2_yqjtg"]
 
 [node name="Game" type="Control"]

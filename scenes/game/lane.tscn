@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8vlxuq37kacv"]
 
-[ext_resource type="Script" uid="uid://cotpl5nodfwdo" path="res://components/lane.gd" id="1_l0wo2"]
+[ext_resource type="Script" uid="uid://cotpl5nodfwdo" path="res://scenes/game/lane.gd" id="1_l0wo2"]
 [ext_resource type="Texture2D" uid="uid://whsegdldubtd" path="res://textures/common/base_circle.svg" id="1_un5h5"]
 
 [node name="Lane" type="VBoxContainer"]
