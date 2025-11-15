@@ -23,7 +23,7 @@ var pickable := false:
             lamp_pick.modulate = Color.WEB_GRAY
 var picked := false:
     set(v):
-        pickable = v
+        picked = v
         if v:
             lamp_pick.modulate = Color.GREEN
         else:

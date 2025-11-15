@@ -10,7 +10,7 @@ const LANE_NUMBERS := {
     5: [14, 15],
     6: [16, 17, 18],
 }
-## { <Lane index>: [<add>, ...], ... }
+## { <Lane index>: <add>, ... }
 const LANE_ADD := {
     0: 5,
     1: 3,
@@ -82,6 +82,8 @@ func _ready() -> void:
     button_pick.pressed.connect(_on_button_pick_pressed)
     button_end.pressed.connect(_on_button_end_pressed)
 
+    # レーンをリセットする
+    # NOTE: _get_temp() より先にやる
     for i: int in lanes.get_child_count():
         var lane: Lane = lanes.get_child(i)
         lane.numbers = LANE_NUMBERS[i]
@@ -117,7 +119,6 @@ func _on_button_roll_pressed() -> void:
     # レーンをリセットする
     for i: int in lanes.get_child_count():
         var lane: Lane = lanes.get_child(i)
-        # pickable: picked 以外
         if not lane.picked:
             lane.pickable = false
         lane.target = false
@@ -180,7 +181,7 @@ func _on_button_roll_pressed() -> void:
                     return
 
     # ピック回数がある場合: ボタンを戻す
-    # NOTE: 初期状態, ピック時, ターン移行時 に無効になりここで戻る
+    # NOTE: 初期状態, ピック時, ターン終了時 に無効になりここで戻る
     if 0 < pick:
         button_pick.disabled = false
 
@@ -200,16 +201,16 @@ func _on_button_pick_pressed() -> void:
         button_pick.visible = false
         button_end.visible = true
 
-    # ロール回数を戻す
-    roll = roll_max
-    button_roll.disabled = false
-
-    # Lane
+    # レーンをピックする
     for i: int in lanes.get_child_count():
         var lane: Lane = lanes.get_child(i)
         if lane.pickable:
             lane.pickable = false
             lane.picked = true
+
+    # ロール回数を戻す
+    roll = roll_max
+    button_roll.disabled = false
 
 
 func _on_button_end_pressed() -> void:
@@ -229,11 +230,18 @@ func _turn_next(success: bool) -> void:
     button_pick.visible = true
     button_end.visible = false
     # レーンをリセットする
+    # NOTE: _get_temp() より先にやる
     for i: int in lanes.get_child_count():
         var lane: Lane = lanes.get_child(i)
+        lane.score = 1
         lane.pickable = false
         lane.picked = false
         lane.target = false
+
+    # 成功した場合
+    if success:
+        score += temp
+    temp = _get_temp()
 
 
 func _refresh_roll_lamps() -> void:
@@ -248,17 +256,6 @@ func _refresh_pick_lamps() -> void:
         var lamp: Control = pick_lamps.get_child(i)
         lamp.modulate = Color.GREEN if i < pick else Color.WEB_GRAY
         lamp.visible = i < pick_max
-
-
-func _reset_lanes() -> void:
-    for i: int in lanes.get_child_count():
-        var lane: Lane = lanes.get_child(i)
-        lane.numbers = LANE_NUMBERS[i]
-        lane.add = LANE_ADD[i]
-        lane.score = 1
-        lane.pickable = false
-        lane.picked = false
-        lane.target = false
 
 
 func _get_temp() -> int:
