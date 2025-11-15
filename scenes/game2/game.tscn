@@ -1,0 +1,474 @@
+[gd_scene load_steps=4 format=3 uid="uid://q1k8djiv4m1s"]
+
+[ext_resource type="Script" uid="uid://ddsi0h3khbayp" path="res://scenes/game2/game.gd" id="1_pdue0"]
+[ext_resource type="PackedScene" uid="uid://c0s3e5i31j662" path="res://scenes/game2/lane.tscn" id="2_pdue0"]
+[ext_resource type="Texture2D" uid="uid://whsegdldubtd" path="res://textures/common/base_circle.svg" id="3_avsci"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pdue0")
+
+[node name="Lanes" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(640, 320)
+layout_mode = 0
+offset_left = 320.0
+offset_top = 40.0
+offset_right = 960.0
+offset_bottom = 360.0
+
+[node name="ColorRect" type="ColorRect" parent="Lanes"]
+visible = false
+layout_mode = 2
+
+[node name="Lanes" type="HBoxContainer" parent="Lanes"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Lane" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Lane2" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Lane3" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Lane4" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Lane5" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Lane6" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Lane7" parent="Lanes/Lanes" instance=ExtResource("2_pdue0")]
+layout_mode = 2
+
+[node name="Labels" type="HBoxContainer" parent="Lanes"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "×"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "×"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "×"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "×"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "×"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "×"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Label=" type="Label" parent="Lanes/Labels"]
+custom_minimum_size = Vector2(40, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="Control" parent="."]
+custom_minimum_size = Vector2(640, 320)
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 360.0
+offset_right = 960.0
+offset_bottom = 680.0
+
+[node name="ColorRect" type="ColorRect" parent="Main"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2)
+
+[node name="ColorRectDiceA" type="ColorRect" parent="Main"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 10.0
+offset_right = 230.0
+offset_bottom = 150.0
+color = Color(1, 1, 1, 0.8)
+
+[node name="LabelDiceA" type="Label" parent="Main/ColorRectDiceA"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRectDiceB" type="ColorRect" parent="Main"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 10.0
+offset_right = 390.0
+offset_bottom = 150.0
+color = Color(1, 1, 1, 0.8)
+
+[node name="LabelDiceB" type="Label" parent="Main/ColorRectDiceB"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRectDiceC" type="ColorRect" parent="Main"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 10.0
+offset_right = 550.0
+offset_bottom = 150.0
+color = Color(1, 1, 1, 0.8)
+
+[node name="LabelDiceC" type="Label" parent="Main/ColorRectDiceC"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRoll" type="Button" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 170.0
+offset_top = 170.0
+offset_right = 310.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 32
+text = "Roll
+Dice"
+
+[node name="ButtonEnd" type="Button" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 330.0
+offset_top = 170.0
+offset_right = 470.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 32
+text = "End
+Phase"
+
+[node name="RerollLamps" type="VBoxContainer" parent="Main"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 160)
+layout_mode = 0
+offset_left = 160.0
+offset_top = 320.0
+offset_right = 180.0
+offset_bottom = 480.0
+rotation = 3.1415927
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Main/RerollLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Main/RerollLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Main/RerollLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Main/RerollLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="PickLamps" type="VBoxContainer" parent="Main"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 160)
+layout_mode = 0
+offset_left = 500.0
+offset_top = 320.0
+offset_right = 520.0
+offset_bottom = 480.0
+rotation = 3.1415927
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Main/PickLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Main/PickLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Main/PickLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Main/PickLamps"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_avsci")
+expand_mode = 1
+
+[node name="Deck" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 360.0
+
+[node name="ColorRect" type="ColorRect" parent="Deck"]
+layout_mode = 2
+color = Color(0.2, 0, 0.2, 0.2)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Deck"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Deck/ScrollContainer"]
+layout_mode = 2
+
+[node name="Shop" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 0
+offset_top = 360.0
+offset_right = 320.0
+offset_bottom = 680.0
+
+[node name="ColorRect" type="ColorRect" parent="Shop"]
+layout_mode = 2
+color = Color(0, 0.2, 0, 0.2)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop/ScrollContainer"]
+layout_mode = 2
+
+[node name="Score" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 40.0
+offset_right = 1280.0
+offset_bottom = 680.0
+
+[node name="ColorRect" type="ColorRect" parent="Score"]
+layout_mode = 2
+color = Color(0, 0, 0.2, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Score"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LabelTemp" type="Label" parent="Score/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "999,999,999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore2" type="Label" parent="Score/VBoxContainer"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LabelScore" type="Label" parent="Score/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "999,999,999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelTarget2" type="Label" parent="Score/VBoxContainer"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 2
+text = "Target"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LabelTarget" type="Label" parent="Score/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "999,999,999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelPhase2" type="Label" parent="Score/VBoxContainer"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 2
+text = "Phase"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LabelPhase" type="Label" parent="Score/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "99/99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStage2" type="Label" parent="Score/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 2
+text = "Stage"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LabelStage" type="Label" parent="Score/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "99/99"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Labels" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="LabelTitle" type="Label" parent="Labels"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_left = 480.0
+offset_top = 680.0
+offset_right = 800.0
+offset_bottom = 720.0
+text = "EDICED v0.0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelDeck" type="Label" parent="Labels"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 40.0
+text = "[DECK]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelShop" type="Label" parent="Labels"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_top = 680.0
+offset_right = 320.0
+offset_bottom = 720.0
+text = "[SHOP]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelLanes" type="Label" parent="Labels"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_left = 480.0
+offset_right = 800.0
+offset_bottom = 40.0
+text = "[LANES]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="Labels"]
+custom_minimum_size = Vector2(320, 40)
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1280.0
+offset_bottom = 40.0
+text = "[SCORE]"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ediced"
-run/main_scene="uid://cbvitk0tws21e"
+run/main_scene="uid://q1k8djiv4m1s"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
